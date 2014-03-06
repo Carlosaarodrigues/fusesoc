@@ -58,6 +58,8 @@ def launch(cmd, args=[], shell=False, cwd=None, stderr=None):
         exit(1)
     except subprocess.CalledProcessError:
         if stderr is None:
-            stderr = "stderr"
-        print("Error: " + cmd + ' '.join(args) + " returned errors. See " + stderr + " for details")
+                output = "stderr"
+            else:
+                output = self.stderr.name
+        print("Error: " + cmd + ' '.join(args) + " returned errors. See " + output + " for details")
         exit(1)
